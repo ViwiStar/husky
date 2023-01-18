@@ -69,11 +69,12 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <!-- Additional nodes for specific accessories; also check husky_description/urdf -->
     <!-- https://www.clearpathrobotics.com/assets/guides/kinetic/husky/additional_sim_worlds.html -->
     <group if="$(optenv HUSKY_REALSENSE_ENABLED 1)">
+      <!-- this is intel realsense camera -->
       <include file="$(find husky_gazebo)/launch/realsense.launch" />
     </group>
-    <!-- TODO: add camera here -->
 
     <!-- Spawn robot in gazebo -->
+    <!-- /home/mitacs/catkin_ws/src/gazebo_ros_pkgs/gazebo_ros/scripts/spawn_model (a python executable) -->
     <node name="spawn_husky_model" pkg="gazebo_ros" type="spawn_model"
         args="-x $(arg x)
               -y $(arg y)
